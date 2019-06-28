@@ -1,23 +1,29 @@
 import java.util.Scanner;
 
 public class StrategyGame {
-    private byte aleatorio;
     private String usuario = "", ordenador = "";
     private Scanner scanner = new Scanner(System.in);
 
     public StrategyGame() {
         System.out.println("*** Juego Piedra Papel y Tijera - Servidor ***");
         System.out.println("*** Elige una opción ***");
+    }
+
+    public String readData() {
         usuario = scanner.next();
+        return usuario;
     }
 
 
-    public String validateInput() {
+    public boolean validateInput() {
+        boolean i = false;
         if (!usuario.equals("piedra") && !usuario.equals("papel") && !usuario.equals("tijera")) {
             System.out.println("*** La opción ingresada es incorrecta, intenta con 'piedra', 'papel' o 'tijera' ***");
         } else {
+            i = true;
+            System.out.println("Elegiste :" + usuario);
         }
-        return usuario;
+        return i;
     }
 
     public void logicGame(String ordenador) {
